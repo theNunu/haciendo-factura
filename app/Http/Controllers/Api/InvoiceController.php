@@ -18,7 +18,7 @@ class InvoiceController extends Controller
     }
 
     public function store(StoreInvoiceRequest $request): JsonResponse
-    {
+    {        
         $userId = $request->input('user_id');
         $items = $request->input('items');
 
