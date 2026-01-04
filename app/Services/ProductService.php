@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use App\DTOs\ProductDTO;
+use App\Models\Product;
 use App\Repositories\ProductRepository;
 
 class ProductService
@@ -32,6 +33,12 @@ class ProductService
         //         'price' => "$".$product->price
         //     ];
         // });
+    }
+
+
+    public function find(int $id)
+    {
+        return $this->productRepository->find($id);
     }
 
     public function create($data)

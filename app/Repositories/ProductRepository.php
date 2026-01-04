@@ -7,7 +7,8 @@ use App\Models\Product;
 class ProductRepository
 {
 
-    public function getAll(){
+    public function getAll()
+    {
         return Product::all();
     }
     public function create(array $data)
@@ -21,4 +22,23 @@ class ProductRepository
             'price'    => $data['price'],
         ]);
     }
+
+    //________________________________________________
+    public function findForUpdate(int $id)
+    {
+        // Para Postgres usamos lockForUpdate()
+        return Product::where('product_id', $id)->lockForUpdate()->first();
+    }
+
+    public function find(int $id)
+    {
+        return Product::find($id);
+    }
+
+    public function decrementStock(Product $product, int $qty)
+    {
+        $product->stock = $product->stock - $qty;
+        $product->save();
+    }
+    //________________________________________________
 }

@@ -30,6 +30,11 @@ class User extends Model
 
     ];
 
+      public function invoices()
+    {
+        return $this->hasMany(Invoice::class, 'invoice_id');
+    }
+
     /**
      * The attributes that should be hidden for serialization.
      *

@@ -19,6 +19,11 @@ class ProductController extends Controller
     {
         return $this->productService->index();
     }
+
+    public function show($id)
+    {
+        return $this->productService->find($id);
+    }
     public function store(StoreProduct $request)
     {
         return response()->json(

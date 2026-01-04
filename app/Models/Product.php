@@ -18,5 +18,12 @@ class Product extends Model
         'price'
     ];
 
-    
+    public function invoiceDetails()
+    {
+        return $this->hasMany(
+            InvoiceDetails::class,
+            'product_id',
+            'product_id'
+        );
+    }
 }
