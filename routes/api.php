@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\ProductController;
+use App\Http\Controllers\Api\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -12,4 +13,10 @@ Route::prefix('products')->group(function () {
     // Route::get('/status', [CourseController::class, 'getActiveAndInactives']);
     // Route::get('{course_id}', [CourseController::class, 'show']);
     // Route::post('', [CourseController::class, 'store']);
+});
+
+
+Route::prefix('users')->group(function () {
+    Route::get('', [UserController::class, 'index']);
+    Route::post('', [UserController::class, 'store']);
 });
