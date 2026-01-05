@@ -27,5 +27,6 @@ use App\Http\Controllers\Api\InvoiceController;
 
 
 Route::prefix('invoices')->group(function () {
+    Route::get('', [InvoiceController::class, 'index']);
     Route::post('', [InvoiceController::class, 'store']);
 });

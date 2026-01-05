@@ -116,4 +116,10 @@ class InvoiceService
             return $invoice;
         });
     }
+
+
+    public function index()
+    {
+        return $this->invoiceRepo->getAll();
+    }
 }

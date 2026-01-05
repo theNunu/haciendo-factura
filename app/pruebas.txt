@@ -1,0 +1,105 @@
+// -------------------------- ---------  ------------ POST http://127.0.0.1:8000/api/invoices
+
+body:
+{
+    "user_id": 1,
+    "items": [
+        {
+            "product_id": 10,
+            "quantity": 4
+        },
+        {
+            "product_id": 4,
+            "quantity": 1
+        }
+    ]
+}
+
+RESPONSE:
+{
+    "invoice_id": 38,
+    "user_id": 1,
+    "total": 1.5,
+    "items": [
+        {
+            "product_id": 10,
+            "product_name": "kiwi",
+            "unit_price": "0.25",
+            "quantity": 4,
+            "subtotal": "1.00"
+        },
+        {
+            "product_id": 4,
+            "product_name": "guineo",
+            "unit_price": "0.50",
+            "quantity": 1,
+            "subtotal": "0.50"
+        }
+    ],
+    "created_at": "2026-01-04T22:11:52.000000Z"
+}
+
+// -------------------------- ---------  ------------ GET http://127.0.0.1:8000/api/invoices
+
+[
+    {
+        "invoice_id": 23,
+        "user_id": 1,
+        "total": "2.00",
+        "status": "paid",
+        "created_at": "2026-01-04T21:16:05.000000Z",
+        "updated_at": "2026-01-04T21:16:05.000000Z",
+        "invoice_details": [
+            {
+                "invoice_detail_id": 41,
+                "invoice_id": 23,
+                "product_id": 10,
+                "quantity": 4,
+                "unit_price": "0.25",
+                "subtotal": "1.00",
+                "created_at": "2026-01-04T21:16:05.000000Z",
+                "updated_at": "2026-01-04T21:16:05.000000Z"
+            },
+            {
+                "invoice_detail_id": 42,
+                "invoice_id": 23,
+                "product_id": 4,
+                "quantity": 2,
+                "unit_price": "0.50",
+                "subtotal": "1.00",
+                "created_at": "2026-01-04T21:16:05.000000Z",
+                "updated_at": "2026-01-04T21:16:05.000000Z"
+            }
+        ]
+    },
+    {
+        "invoice_id": 38,
+        "user_id": 1,
+        "total": "1.50",
+        "status": "paid",
+        "created_at": "2026-01-04T22:11:52.000000Z",
+        "updated_at": "2026-01-04T22:11:52.000000Z",
+        "invoice_details": [
+            {
+                "invoice_detail_id": 49,
+                "invoice_id": 38,
+                "product_id": 10,
+                "quantity": 4,
+                "unit_price": "0.25",
+                "subtotal": "1.00",
+                "created_at": "2026-01-04T22:11:52.000000Z",
+                "updated_at": "2026-01-04T22:11:52.000000Z"
+            },
+            {
+                "invoice_detail_id": 50,
+                "invoice_id": 38,
+                "product_id": 4,
+                "quantity": 1,
+                "unit_price": "0.50",
+                "subtotal": "0.50",
+                "created_at": "2026-01-04T22:11:52.000000Z",
+                "updated_at": "2026-01-04T22:11:52.000000Z"
+            }
+        ]
+    }
+]

@@ -18,7 +18,7 @@ class InvoiceController extends Controller
     }
 
     public function store(StoreInvoiceRequest $request): JsonResponse
-    {        
+    {
         $userId = $request->input('user_id');
         $items = $request->input('items');
 
@@ -39,5 +39,11 @@ class InvoiceController extends Controller
             ]),
             'created_at' => $invoice->created_at,
         ], 201);
+    }
+
+
+    public function index()
+    {
+        return $this->invoiceService->index();
     }
 }
