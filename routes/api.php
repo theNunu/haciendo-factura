@@ -30,3 +30,7 @@ Route::prefix('invoices')->group(function () {
     Route::get('', [InvoiceController::class, 'index']);
     Route::post('', [InvoiceController::class, 'store']);
 });
+
+use App\Http\Controllers\Api\InvoicePdfController;
+
+Route::get('/invoices/{id}/pdf', [InvoicePdfController::class, 'show']);
